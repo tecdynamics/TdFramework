@@ -1,0 +1,172 @@
+/* CSS Document */
+body
+{font-family:Arial, Helvetica, sans-serif;
+font-size:11px;
+background:#EEEFF3 url(../images/bodybg.jpg) repeat-x;
+margin:0px;
+padding:0px;
+}
+*{margin:0; padding:0}
+#wrapper
+{margin:0 auto;
+width:904px;
+}
+.clear
+{clear:both;
+margin:0px;
+padding:0px;
+}
+.menuzone
+{background-color: black;
+ height:35px;
+}
+#logo
+{width:108px;
+height:75px;
+background-image:url(../images/main/tec_logo.png);
+margin-left:45px;
+float:left;
+}
+.topMenu
+{
+    margin:0px;
+padding:10px 20px 0px 0px;
+float:right;
+}
+.topMenu ul
+{margin:0px;
+padding:0px;
+}
+.topMenu li
+{display:inline;
+color:#FFFFFF; border-left:1px solid #fff; padding:0 5px 0 10px;
+}
+.topMenu li.first{border:none}
+.topMenu li a
+{color:#FFFFFF;
+text-decoration:none;
+font-weight:bold;
+padding:0px 5px 0px 3px;
+}
+.topMenu li a:hover{text-decoration:underline}
+.topMenu li a.current{text-decoration:underline}
+#menu2
+{height:45px;
+float:right;
+margin:0px;
+padding:30px 20px 0px 0px;
+}
+#menu2 ul
+{margin:0px;
+padding:0px;
+}
+#menu2 li
+{display:inline;
+color:#FFFFFF;
+list-style:none;
+}
+#menu2 li a
+{color:#47608D;
+margin:0px 20px 0px 0px; display:inline;
+font-size:12px;
+text-decoration:none;
+font-weight:bold;
+}
+h1
+{margin:0px;
+padding:26px 0px 0px 47px;
+font-size:21px;
+font-family:Arial, Helvetica, sans-serif;
+}
+h2
+{margin:0px;
+padding:10px 0px 0px 47px;
+color:#FFFFFF;
+font-weight:200;
+font:25px Gill Sans Condensed, Myriad Pro, Arial, Helvetica, sans-serif;
+}
+.compatibility
+{width:904px;
+ text-align:center;
+padding:0px 0px 0px 0px;
+margin:0px; 
+background-repeat:no-repeat;
+font-weight:bold;
+}
+.compatibilitybox {
+    width:450px;
+    float:right;
+
+}
+.compatibilitytxt {
+	float:left;
+	padding:20px 0px 0px 0px;
+	margin-right:10px;
+}
+.compatibilityicon {
+	float:left;
+	margin-right:10px;
+} 
+#container2
+{width:650px;
+padding:40px 0px 40px 0px;
+float:left;
+
+}
+h3
+{text-align:center;
+color:#000000;
+font-size:12px;
+font-weight:bold;
+margin:0px;
+padding:25px 0px 22px 0px;
+}
+.welCome
+{width:650px; float:left;
+background:#4564A7;
+}
+.welComeleft
+{width:19px;
+height:44px;
+background-image:url(../images/blueleftbg.jpg);
+float:left;
+}
+.welComeright
+{width:19px;
+height:44px;
+background-image:url(../images/bluerightbg.jpg);
+float:right;
+}
+.welCometextBox1
+{width:650px;
+background-color:#FFFFFF;
+float:left;
+}
+.bottom_container{float:left; width:904px}
+.welCometextBox2{float:left; width:192px; padding:0 0 0 38px}
+.welCometextBox2 h4{float:left; width:170px; height:25px; font:18px/20px Gill Sans Condensed, Myriad Pro, Arial, Helvetica, sans-serif; color:#fff; background:url(../images/bluebg2.jpg) no-repeat 0 0; padding:68px 0 0 22px}
+.welCometextBox2 .news{float:left; width:192px; background:url(../images/news_bg.gif) repeat-y 0 0}
+.welCometextBox2 .news p{ float:left; width:154px; font:11px/13px Arial, Helvetica, sans-serif; color:#58595e; padding:5px 0 8px 20px}
+.welCometextBox2 .news p span{color:#c45221; font:11px/13px Arial, Helvetica, sans-serif; font-weight:bold}
+.welCometextBox2 .more{float:left; width:192px; height:58px; background:url(../images/more_bg.gif) no-repeat 0 0}
+.welCometextBox2 .more a{float:left; font-weight:bold; color:#4564a7; font:11px/13px Arial, Helvetica, sans-serif; text-decoration:none; margin:13px 0 0 21px}
+.welCometextBox2 .more a:hover{text-decoration:underline}
+.welCometext{
+float:left;
+text-align:justify;
+margin:0px 0px 0px 0px;
+color:#6C6B70;
+border-bottom:solid #d6d7da 1px; 
+padding:25px 35px 36px 35px;
+}
+.welCometextBold
+{color:#1E3C73;
+font-weight:bold;
+}
+#footer{width:904px; float:left; border-top:2px solid #bfbfbf}
+#footer ul{width:904px; float:left; text-align:center; list-style:none; padding:20px 0 50px 0 }
+#footer li{width:auto; font:bold 11px/13px Arial, Helvetica, sans-serif; color:#4564a7; padding:0 10px 0 10px ; border-left: 1px solid #4564a7; display:inline}
+#footer li.first{border:none}
+#footer li a{color:#4564a7; text-decoration:none}
+#footer li a:hover{color:#4564a7; text-decoration:underline}
+#footer li a.current{text-decoration:underline}
