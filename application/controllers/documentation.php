@@ -19,16 +19,14 @@
  * @version    0.1.5, 2014-12-22  
  */
 
-class Home extends Controller {
-	/**
-     * Index Controller
-     */
+class Documentation extends Controller {
+
     function index()
 	{        
-        $template = $this->loadView('index');
-        $template->set('pageinfo', '');
+        $template = $this->loadView('../helpers/documentation/document');
         $template->render();
     }
+
 
 }
  

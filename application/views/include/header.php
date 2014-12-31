@@ -31,8 +31,8 @@
                             <div class="topMenu">
                                 <ul>
                                     <li class="first"><a href="<?php echo BASE_URL; ?>home">Home</a></li>
-                                    <li><a   href="<?php echo BASE_URL; ?>about">About Us</a></li>
-                                    <li><a  href="<?php echo BASE_URL; ?>contact">Contact Us</a></li>
+                                    <li><a   href="http://tecdynamics.co.uk">About Us</a></li>
+                                    <li><a  href="<?php echo BASE_URL; ?>documentation">Documentation</a></li>
                                 </ul>
                             </div>
                             <div class="clear"></div>

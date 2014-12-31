@@ -26,13 +26,13 @@ $config['costum_errors'] = true; // Enable Costum Error recording True/False
 $config['default_controller'] = 'home'; // Default controller to load
 $config['default_action'] = 'index'; // Default controller to load
 $config['error_controller'] = 'error'; // Controller used for errors (e.g. 404, 500 etc)
-$config['encodekey'] = 'TecDynamics!@';  // The main Encoding Key Case Sensitive.
+$config['encodekey'] = 'TecDynamics!@123';  // The main Encoding Key Case Sensitive.
 $config['pagetitle'] = 'Tec-Dynamics | Framework';  // The main Pages Title.
 // Database Info
 $config['db_type'] = 'mysql'; // Database type *Mysql*Sql*
-$config['db_name'] = 'sms'; // Database name
-$config['db_username'] = 'root'; // Database username
-$config['db_password'] = 'Mamba1975'; // Database password
+$config['db_name'] = 'DB-Name'; // Database name
+$config['db_username'] = 'MySqlUser'; // Database username
+$config['db_password'] = 'Mysql Password'; // Database password
 $config['db_host'] = 'localhost'; // Database host (e.g. localhost)
 //
 // Defines please do not edit
@@ -44,7 +44,7 @@ define('VIEWS_CSS', $config['base_url'] . '');
 define('BASE_URL', $config['base_url']);
 define('BASE_IMAGE', $config['base_url'] . '/' . BASE . 'images/');
 define('URL_PATH', $config['base_url'] . 'application/');
-define('CASHE_PATH', $config['base_url'] . 'tmp/');
+define('CASHE_PATH', 'tmp/');
 define('ENCODE_KEY', $config['encodekey']);
 
 // if you want to relocate the error logs
@@ -55,13 +55,13 @@ define('ERROR_FILENAME', 'error.log'); //@var the actual filename of the logs
  * --------Email Vars -----------------------
  */
 define('SMTPemailAuth', 'true');
-define('EmailPort', '25'); //465');
-define('EmailHost', 'mail.hellasvoip.gr'); //smtp.gmail.com');
+define('EmailPort', '25'); //465
+define('EmailHost', 'mail.yourSmtp.com'); //smtp.gmail.com
 define('SMTPEmailSecure', false); // 'ssl');
-define('mailUsername', 'sales@hellasvoip.gr'); //lechjohnny@gmail.com');
-define('mailPassword', 'qawsed!@#'); //ljohnny33413!@#');
-define('Fromemail', 'sales@hellasvoip.gr');
-define('FromNamemail', 'Hellas Voip');
+define('mailUsername', 'email@youremail.com'); //yourgmail@gmail.com
+define('mailPassword', 'yourPassword');
+define('Fromemail', 'your@email.com');
+define('FromNamemail', 'Your Name');
 
 /*
  * ------------- Errrors Info ----------------------

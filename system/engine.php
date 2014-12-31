@@ -30,11 +30,12 @@ class engine {
      * @return type array
      */
     public function getVars() {
-       foreach ($_GET as $key => $val) {
+        foreach ($_GET as $key => $val) {
             $this->gvars[self::escapeString($key)] = self::escapeString($val);
         }
         return $this->gvars;
     }
+
     /**
      * Get passed Variables
      * @return type array
@@ -45,6 +46,16 @@ class engine {
         }
 
         return $this->pvars;
+    }
+
+    /**
+     * Cashing Read more at Helpers/tdcache
+     * White Spaces and spesial characters
+     * @param $val string
+     * @return string
+     */
+    public static function Cashe() {
+        return new tdCashe();
     }
 
     /**
@@ -65,59 +76,6 @@ class engine {
     }
 
     /**
-     * Cashing Read more at Helpers/tdcache
-     * White Spaces and spesial characters
-     * @param $val string
-     * @return string
-     */
-    public static function Cashe() {
-//       $cashe = new phpFastCache();
-//        phpFastCache::setup("storage", CASHE_PATH);
-//        return $cashe;
-        $config = array(
-            /*
-             * Default storage
-             * if you set this storage => "files", then $cache = phpFastCache(); <-- will be files cache
-             */
-            "storage" => "auto", // files, sqlite, auto, apc, wincache, xcache, memcache, memcached,
-
-            /*
-             * Default Path for Cache on HDD
-             * Use full PATH like /home/username/cache
-             * Keep it blank "", it will automatic setup for you
-             */
-            "path" => "", // default path for files
-            "securityKey" => "", // default will good. It will create a path by PATH/securityKey
-
-            /*
-             * FallBack Driver
-             * Example, in your code, you use memcached, apc..etc, but when you moved your web hosting
-             * The new hosting don't have memcached, or apc. What you do? Set fallback that driver to other driver.
-             */
-            "fallback" => array(
-                "example" => "files",
-                "memcache" => "files",
-                "apc" => "sqlite",
-            ),
-            /*
-             * .htaccess protect
-             * default will be  true
-             */
-            "htaccess" => true,
-            /*
-             * Default Memcache Server for all $cache = phpFastCache("memcache");
-             */
-            "server" => array(
-                array("127.0.0.1", 11211, 1),
-            //  array("new.host.ip",11211,1),
-            ),
-        );
-
-        phpFastCache::setup($config);
-        return new phpFastCache();
-    }
-
-    /**
      * Escape a string  Not for db import
      * White Spaces and spesial characters
      * @param $val string
@@ -125,13 +83,13 @@ class engine {
      */
     public static function escapeString($val = '') {
         if (!empty($val)) {
-             $val = trim($val);
+            $val = trim($val);
             $val = ltrim($val);
             $val = rtrim($val);
-         } else {
+        } else {
             $val = '';
         }
-        return !empty($val)?$val:'';
+        return !empty($val) ? $val : '';
     }
 
     /**
@@ -153,9 +111,9 @@ class engine {
                 }
             }
         }
-        return !empty($haystack)?$haystack:'';
+        return !empty($haystack) ? $haystack : '';
     }
-  
+
     /**
      * Clean from the empty elements one multysesional 
      * Array 
@@ -170,10 +128,11 @@ class engine {
                 unset($arr[$key]);
             }
         }
-        return !empty($arr)?$arr:'';
+        return !empty($arr) ? $arr : '';
     }
-   /**
-     *Debug System
+
+    /**
+     * Debug System
      */
     public function debugScript() {
         echo '</br></br></br></br></br></br>'
