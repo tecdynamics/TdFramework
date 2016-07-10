@@ -44,13 +44,13 @@ class Error extends Controller {
         $this->css = 'errors/css/error';
         $pageinfo = 'Error 404';
         ob_start();
-        require(BASE . 'include/header.php');
-        require(BASE . 'errors/error404.php');
-        require(BASE . 'include/footer.php');
+        require(BASE . 'include/header.phtml');
+        require(BASE . 'errors/error404.phtml');
+        require(BASE . 'include/footer.phtml');
         echo ob_get_clean();
     }
 
-    function dump_error_to_file($errno, $errstr) {
+    public static function dump_error_to_file($errno, $errstr) {
         self::errorRecording($errstr);
     }
 
@@ -81,7 +81,7 @@ class Error extends Controller {
         $d = new Exception();
         self::errorRecording($e);
         ob_start();
-        require(BASE . 'errors/exception.php');
+        require(BASE . 'errors/exception.phtml');
         echo ob_get_clean();
     }
 

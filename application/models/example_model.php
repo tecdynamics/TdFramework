@@ -22,9 +22,14 @@
 
 class Example_model extends Model {
 
+       public function __construct() {
+        parent::__construct();
+    }
+
     public function getPdo($id = '') {
-        $this->query('SELECT * FROM application');
-        return $this->GetAll();
+       $dbs = $this->prepare('SELECT * FROM application');
+        $dbs->execute(array(':key' => $code));
+        return $dbs->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getOrm($id = '') {

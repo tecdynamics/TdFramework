@@ -1,0 +1,136 @@
+/**
+/*
+ * Description of Class Services
+ * Copyright (c) 2013 - 2014 Tec-Dynamics
+ *
+ * This Framework is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This Framework is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * @category   PHP
+ * @package    Framework
+ * @copyright  Copyright (c) 2013 - 2014 Tec-Dynamics L.T.D. (http://www.tec-dynamics.co.uk/webphp)
+ * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt    LGPL
+ * @version    0.1.5, 2014-12-22
+ */
+/* clearfix */
+#pgclear:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+#pgclear {
+    display: inline-block;
+}
+*html #pgclear {
+    height: 1%;
+}
+
+#pgclear {
+    display: block;
+}
+
+/* pagination styling */
+#pgpagination {
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    height: 30px;
+    /*width: 100%;*/
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+}
+
+#pgpagination .pgul{
+    margin:0px auto;
+
+}
+#pgpagination ul{
+    clear:left;
+    float:left;
+    list-style:none;
+    margin:0;
+    padding:0;
+    position:relative;
+    left:50%;
+    text-align:center;
+
+} 
+#pgpagination li {
+    display:block;
+    float:left;
+    list-style:none;
+    margin:0;
+    padding:0;
+    position:relative;
+    right:50%;
+    margin-right: 2px;
+
+}
+#pgpagination a{
+    text-decoration:none;
+    color: #717171;
+    font-size: 1.5 em;
+    text-shadow: 1px 1px 0 #fff;
+}
+#pgpagination ul>li{
+    background-color:#eaeaea;
+    border: solid black thin;
+    border-radius: 4px; 
+    height: 25px;
+    line-height: 27px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    color: #717171;
+    text-shadow: 1px 1px 0 #fff;
+}
+
+
+#pgpagination .pgdisabled  {
+    background-color: #585858;
+    display: none;
+}
+
+
+#pgpagination .pgcopy   {
+    text-indent: -100 px;
+}
+
+#pgpagination .pgprevious  {
+    width: 80px;
+}
+#pgpagination ul>li:hover {
+    background-color:#039ACA;
+    color: #000071;
+}
+
+
+
+#pgpagination .pgnumber  {
+    min-width: 25px; 
+}
+
+#pgpagination .pgnext {
+    width: 60px;
+    background-position: -112px 0;
+}
+
+
+#pgpagination  .pgcopy .pgdisabled   {
+    cursor: default;
+}
+
+
+
+
+#pgpagination  .pgactive a {
+    color: #000;
+    cursor: default;
+    text-shadow:0 1px 0 #585858;
+}

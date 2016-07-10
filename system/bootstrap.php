@@ -38,7 +38,7 @@
 
  */
 
-class Bootstrap extends Controller {
+class Bootstrap {
 
     function __construct() {
         global $config;
@@ -52,18 +52,20 @@ class Bootstrap extends Controller {
         $url = rtrim($url);
         $url = explode('/', $url);
         $RequestedFile = strtolower($url[0]);
-        $this->cookies()->init();
+        Cookie::init();
         if (empty($url[0])) {
-            $controller = new $config['default_controller'];
+            $controller = $controller = $config['default_controller']::getInstance();
+
             $controller->{$config['default_action']}();
             return FALSE;
         } else {
             if (!file_exists(APP_DIR . 'controllers/' . $RequestedFile . '.php')) {
-                $controller = new Error();
+                $controller = Error::getInstance();
                 $controller->index($RequestedFile);
                 return FALSE;
             } else {
-                $controller = new $RequestedFile;
+                $controller = $RequestedFile::getInstance();
+              
                 //==================
                 if (!empty($url[2])) {
                     $controller->{$url[1]}($url[2]);
@@ -77,8 +79,8 @@ class Bootstrap extends Controller {
                         $controller->{$url[1]}();
 
                     } else {
-                        $controller = new Error();
-                          $controller->Index($url[1]);
+                        $controller = Error::getInstance();
+                        $controller->Index($url[1]);
                     }
                     return FALSE;
                 }

@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Documentation manual</title>
-        <!-- Include jQuery & jQuery UI é�© -->
+        <!-- Include jQuery & jQuery UI Ã©ï¿½Â© -->
         <meta charset='utf-8' />
         <link rel='stylesheet' href='http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css' />
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Oxygen:400,700|PT+Sans+Narrow:700' />

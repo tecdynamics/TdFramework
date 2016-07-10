@@ -29,8 +29,8 @@ abstract class apstract {
      * @return \CookieSet
      */
    final public function cookies() {
-       require(APP_DIR . 'helpers/cookie.php');
-         return new Cookie();
+       require(APP_DIR . 'helpers/Tdclasses/cookie.php');
+        return new Cookie();
     }
 
     /**
@@ -39,7 +39,7 @@ abstract class apstract {
      * @return \Crypto
      */
     final public function Crypto() {
-        require(APP_DIR . 'helpers/crypto.php');
+        require(APP_DIR . 'helpers/Tdclasses/crypto.php');
         return new Crypto();
     }
 

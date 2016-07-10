@@ -1,4 +1,5 @@
 <?php
+session_start();
 /*
  * Description of Index File 
  * Copyright (c) 2013 - 2014 Tec-Dynamics 
@@ -18,9 +19,9 @@
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt    LGPL
  * @version    0.1.5, 2014-12-22  
  */
-ini_set('display_errors', 1);
- 
+
 require('application/config/config.php');
+require('application/config/custom_config.php');
 require('system/td.php');
 
 require('system/bootstrap.php');

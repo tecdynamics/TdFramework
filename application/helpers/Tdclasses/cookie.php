@@ -26,7 +26,7 @@ class Cookie {
    /**
     * Set Session Start
     */
-    public function init() {
+    public static function init() {
         @session_start();
     }
 
@@ -35,9 +35,9 @@ class Cookie {
      * @param string Name of the cookie $value
      * @param string Value of the  $secondValue 
      */
-    public function setCookie($value, $secondValue) {
+    public static function setCookie($secondValue) {
         setcookie('uid', $secondValue, time() + 3600, '/');
-        setcookie('user', $value, time() + 3600, '/');         
+//        setcookie('user', $value, time() + 3600, '/');
     }
     
 
@@ -46,7 +46,7 @@ class Cookie {
      * @param type the name of the cookie $name
      * @return the cookie or false
      */
-    public function getCookie($name='user') {
+    public static function getCookie($name = 'user') {
         if (isset($_COOKIE[$name])) {
 
             return $_COOKIE[$name];
@@ -62,13 +62,14 @@ class Cookie {
     * Deastory any cookies
     * @return type bool
     */
-    public function destroyCookie() {
-                $past = time()- 23600;
+    public static function destroyCookie() {
+        $past = time()- 23600;
                         foreach ( $_COOKIE as $key => $value )
                         {
                             setcookie( $key, $value, $past, '/' );
                         }
-       return isset($_SERVER['HTTP_COOKIE'])?false:true;
+        SessionHelper::destroy();
+        return isset($_SERVER['HTTP_COOKIE'])?false:true;
     }
 
 }

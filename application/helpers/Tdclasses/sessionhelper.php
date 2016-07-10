@@ -18,37 +18,54 @@
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt    LGPL
  * @version    0.1.5, 2014-12-22  
  */
-class Session_helper {
-       
-        /**
+class SessionHelper {
+
+    /**
          * Set in the Session an array
          * @param type $key the key 
          * @param type $val the value
          */
-	function set($key, $val)
-	{
-            if(!empty($key) && !empty($val)){
-		$_SESSION[engine::escapeString($key)] = engine::escapeString($val);
+	public static function set($key, $val) {
+            if (!empty($key) && !empty($val)) {
+            if (is_array($val) || is_object($val)) {
+                $_SESSION['tecSession'][engine::escapeString($key)] = json_encode($val);
+            } else {
+                $_SESSION['tecSession'][engine::escapeString($key)] = engine::escapeString($val);
             }
-	}
+        }
+        return $val;
+    }
 	/**
          * Get from the Session a value
          * @param type $key the keyname
          * @return type array()
          */
-	function get($key='')
-	{ 
-		return isset($_SESSION["$key"])?$_SESSION[$key]:null;
-             
-	}
-	/**
+	public static function get($key = '') {
+	if (isset($_SESSION['tecSession'][engine::escapeString($key)])) {
+            $session = $_SESSION['tecSession'][engine::escapeString($key)];
+            if (Urlhelper::isJson($session)) {
+                return json_decode($session);
+            } else {
+                return $session;
+            }
+        }
+        return null;
+    }
+
+    /**
          * Destroy all the sessions
          */
-	function destroy()
-	{
-		session_destroy();
-	}
+	public static function destroy($key = null) {
+        if ($key == null) {
+            session_destroy();
+        } else {
+            unset($_SESSION['tecSession'][$key]);
+        }
+    }
+
+    public static function encodeSession($id = 0) {
+        return md5('tecSession' . $id);
+    }
 
 }
-
-?>
+ 

@@ -20,10 +20,18 @@
  */
 class Model extends db {
 
+    private static $_modelInstance = false;
+
+    public static function getModel() {
+        if (self::$_modelInstance == false) {
+            self::$_modelInstance = new static();
+        }
+        return self::$_modelInstance;
+    }
+
     public function __construct() {
         global $config;
-
-        parent::__construct();
+     parent::__construct();
     }
 
     /**
@@ -32,7 +40,7 @@ class Model extends db {
      * @return type
      */
     public function escapeString($string) {
-        return $this-> quote($string);
+        return $this->quote($string);
     }
 
     /**
@@ -78,4 +86,3 @@ class Model extends db {
 
 }
 
-?>

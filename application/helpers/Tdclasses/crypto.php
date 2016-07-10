@@ -19,8 +19,8 @@
  * @version    0.1.5, 2014-12-22  
  */ 
 class Crypto {
-   
-       /**
+
+    /**
         * Encoding any string with mycript and base64
         * @param $string string
         * @return Encode string
@@ -41,4 +41,9 @@ class Crypto {
     $string=base64_decode($decript_string);
 return mcrypt_decrypt(MCRYPT_RIJNDAEL_256, ENCODE_KEY, $string, MCRYPT_MODE_ECB);  
     }
+
+    public static function cryptocode() {
+        return mt_rand();
+    }
+
 }
