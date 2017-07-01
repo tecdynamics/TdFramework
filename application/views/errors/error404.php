@@ -17,21 +17,9 @@
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt    LGPL
  * @version    0.1.5, 2014-12-22
 -->
-<div class="clear"></div>
-</div>
-<div class="clear"></div>
+<div class="container-fluid bg-2 text-center">
 
-<div class="compatibility">
-    <div class="compatibilitybox">
-        <div class="compatibilitytxt"> Compatibility : </div>
-        <div class="compatibilityicon"> <a href="http://tec-dynamics.co.uk/"> <img src="<?php echo BASE_IMAGE; ?>linux.png" alt="" border="0" /> </a> </div>
-        <div class="compatibilityicon"> <a href="http://tec-dynamics.co.uk/"> <img src="<?php echo BASE_IMAGE; ?>suse.png" alt="" border="0" /> </a> </div>
-        <div class="compatibilityicon"> <a href="http://tec-dynamics.co.uk/"> <img src="<?php echo BASE_IMAGE; ?>win.png" alt="" border="0" /> </a> </div>
-        <div class="compatibilityicon"> <a href="http://tec-dynamics.co.uk/"> <img src="<?php echo BASE_IMAGE; ?>php.png" alt="" border="0" /> </a> </div>
-        <div class="compatibilityicon"> <a href="http://tec-dynamics.co.uk/"> <img src="<?php echo BASE_IMAGE; ?>html.png" alt="" border="0" /> </a> </div>
-    </div>
-    <div class="clear"></div>
-  </div>
+
   <div class="clear"></div>
   <h1 class="inner">ERROR - 404</h1>
  	<div class="logo">
@@ -48,4 +36,15 @@
       UK<br />
       support@tecdynamics.co.uk<br />
       <br /> 
-   
+</div>
+<div class="compatibility" style="margin: 5px;">
+    <div class="compatibilitybox">
+        <div class="compatibilitytxt"> Compatibility : </div>
+        <div class="compatibilityicon"> <a href="http://tec-dynamics.co.uk/"> <img src="<?php echo BASE_IMAGE; ?>linux.png" alt="" border="0" /> </a> </div>
+        <div class="compatibilityicon"> <a href="http://tec-dynamics.co.uk/"> <img src="<?php echo BASE_IMAGE; ?>suse.png" alt="" border="0" /> </a> </div>
+        <div class="compatibilityicon"> <a href="http://tec-dynamics.co.uk/"> <img src="<?php echo BASE_IMAGE; ?>win.png" alt="" border="0" /> </a> </div>
+        <div class="compatibilityicon"> <a href="http://tec-dynamics.co.uk/"> <img src="<?php echo BASE_IMAGE; ?>php.png" alt="" border="0" /> </a> </div>
+        <div class="compatibilityicon"> <a href="http://tec-dynamics.co.uk/"> <img src="<?php echo BASE_IMAGE; ?>html.png" alt="" border="0" /> </a> </div>
+    </div>
+    <div class="clear"></div>
+  </div>

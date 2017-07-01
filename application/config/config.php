@@ -20,22 +20,27 @@
  * @version    0.1.5, 2014-12-22  
  */
 // Web Site Info
-$config['base_url'] = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . $_SERVER['HTTP_HOST']; // Base URL including trailing slash (e.g. http://localhost/)
-$config['errors'] = False;  // Enable error recording True/False
+$config['base_url'] = 'http://localhost/MyFramework/'; // Base URL including trailing slash (e.g. http://localhost/)
+$config['errors'] = true;  // Enable error recording True/False
 $config['costum_errors'] = true; // Enable Costum Error recording True/False
 $config['default_controller'] = 'home'; // Default controller to load
 $config['default_action'] = 'index'; // Default controller to load
 $config['error_controller'] = 'error'; // Controller used for errors (e.g. 404, 500 etc)
 $config['encodekey'] = 'TecDynamics!@123';  // The main Encoding Key Case Sensitive.
 $config['pagetitle'] = 'Tec-Dynamics | Framework';  // The main Pages Title.
-$config['defLang'] = 'en';  // Default language e.g. [en --English-- , el --Greek--  more info helpers/Tdclasses/Urlhelper].
-
-/**
- * -------------- Defines please do not edit -----------------------
- */
+// Database Info
+$config['db_type'] = 'mysql'; // Database type *Mysql*Sql*
+$config['db_name'] = 'DB-Name'; // Database name
+$config['db_username'] = 'MySqlUser'; // Database username
+$config['db_password'] = 'Mysql Password'; // Database password
+$config['db_host'] = 'localhost'; // Database host (e.g. localhost)
+//
+// Defines please do not edit
 define('ROOT_DIR', realpath(dirname(__FILE__)) . '/');
 define('APP_DIR', 'application/');
 define('BASE', 'application/views/');
+define('STORAGE', 'storage/');
+define('SYSTEM', 'system/');
 define('VIEWS_URL', $config['base_url'] . 'application/views/');
 define('VIEWS_CSS', $config['base_url'] . '');
 define('BASE_URL', $config['base_url']);
@@ -43,14 +48,25 @@ define('BASE_IMAGE', $config['base_url'] . '/' . BASE . 'images/');
 define('URL_PATH', $config['base_url'] . 'application/');
 define('CASHE_PATH', 'tmp/');
 define('ENCODE_KEY', $config['encodekey']);
-/**
- * ----------- if you want to relocate the error logs ---------------
- */
+
+// if you want to relocate the error logs
 define('ERROR_PATH', 'errors/logs'); //@var the actual path of the logs
 define('ERROR_FILENAME', 'error.log'); //@var the actual filename of the logs
 
+/**
+ * --------Email Vars -----------------------
+ */
+define('SMTPemailAuth', 'true');
+define('EmailPort', '25'); //465
+define('EmailHost', 'mail.yourSmtp.com'); //smtp.gmail.com
+define('SMTPEmailSecure', false); // 'ssl');
+define('mailUsername', 'email@youremail.com'); //yourgmail@gmail.com
+define('mailPassword', 'yourPassword');
+define('Fromemail', 'your@email.com');
+define('FromNamemail', 'Your Name');
+
 /*
- * --------------- Error Info ----------------------
+ * ------------- Errrors Info ----------------------
  * 0 - Turn off all error reporting
  * 1 - Running errors
  * 2 - Running errors + notices
@@ -88,4 +104,3 @@ switch ($php_error_reporting) {
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
 }
-

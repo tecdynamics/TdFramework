@@ -23,9 +23,15 @@ class Home extends Controller {
 	/**
      * Index Controller
      */
-    function index()
-	{        
+    function index($id='')
+	{        echo $id;
         $template = $this->loadView('index');
+        $template->set('pageinfo', '');
+        $template->render();
+      }
+    function mike()
+	{        
+        $template = $this->loadView('index.php');
         $template->set('pageinfo', '');
         $template->render();
     }

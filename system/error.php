@@ -19,48 +19,43 @@
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt    LGPL
  * @version    0.1.5, 2014-12-22  
  */
+ 
 
-
-class Error extends Controller {
-
-    private $css = '';
+      $css = '';
 
     /**
      * @var the Exeptions msg 
      */
-    static $_msg = '';
+     $_msg = '';
 
-    public function index($error = '') {
-
-        $this->error404();
-        self::errorRecording($error);
-    }
+     function triggerError($error = '') {
+     
+        error404();
+        if(!empty($error)){
+        errorRecording($error);
+     }}
 
     /**
      * Render 404 Page for any regular error
      */
-    public function error404() {
-
-        $this->css = 'errors/css/error';
-        $pageinfo = 'Error 404';
-        ob_start();
-        require(BASE . 'include/header.phtml');
-        require(BASE . 'errors/error404.phtml');
-        require(BASE . 'include/footer.phtml');
-        echo ob_get_clean();
+    function error404() { 
+        $template = new View('errors/error404');
+        $template->set('css', 'errors/css/error');
+        $template->set('pageinfo', 'Error 404');
+        $template->render();  
     }
 
-    public static function dump_error_to_file($errno, $errstr) {
-        self::errorRecording($errstr);
+    function dump_error_to_file($errstr='') {
+        errorRecording($errstr);
     }
 
     /**
      * Write into Log File
      * @param type $error sting
      */
-    public static function errorRecording($error = '') {
+    function errorRecording($error = '') {
         global $config;
-        if ($config['errors'] === true) {
+        if ((bool)$config['errors'] === true) {
             $oldmask = umask(0);
             !file_exists(BASE . ERROR_PATH) ? mkdir(BASE . ERROR_PATH, 0777) : '';
             $handle = fopen(BASE . ERROR_PATH . '/' . ERROR_FILENAME, 'a+');
@@ -77,11 +72,11 @@ class Error extends Controller {
      * Main Exception Handler
      * @param Exception $e
      */
-    public static function exception($e) {
+  function exception($e='') {
         $d = new Exception();
-        self::errorRecording($e);
+         errorRecording($e);
         ob_start();
-        require(BASE . 'errors/exception.phtml');
+        require(BASE . 'errors/exception.php');
         echo ob_get_clean();
     }
 
@@ -90,11 +85,10 @@ class Error extends Controller {
      * one msg at line error::apendMsg('this is your msg');
      * @param type $param string
      */
-    public static function apendMsg($param = '') {
-        $d = @unserialize(self::$_msg);
+      function apendMsg($param = '') {
+        $d = @unserialize($_msg);
         @is_array($d) ? '' : $d = array();
         @array_push($d, $param);
-        self::$_msg = @serialize($d);
+         $_msg = @serialize($d);
     }
-
-}
+ 

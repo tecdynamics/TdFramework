@@ -1,7 +1,6 @@
 <?php
-
 /*
- * Description of Index File 
+ * Description of Helper Session 
  * Copyright (c) 2013 - 2014 Tec-Dynamics 
  * 
  * This Framework is free software; you can redistribute it and/or
@@ -19,11 +18,37 @@
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt    LGPL
  * @version    0.1.5, 2014-12-22  
  */
-ini_set('display_errors', 1);
+class Session_helper {
+       
+        /**
+         * Set in the Session an array
+         * @param type $key the key 
+         * @param type $val the value
+         */
+	function set($key, $val)
+	{
+            if(!empty($key) && !empty($val)){
+		$_SESSION[engine::escapeString($key)] = engine::escapeString($val);
+            }
+	}
+	/**
+         * Get from the Session a value
+         * @param type $key the keyname
+         * @return type array()
+         */
+	function get($key='')
+	{ 
+		return isset($_SESSION["$key"])?$_SESSION[$key]:null;
+             
+	}
+	/**
+         * Destroy all the sessions
+         */
+	function destroy()
+	{
+		session_destroy();
+	}
 
-require('application/config/config.php');
-require('system/td.php');
-include(SYSTEM.'error.php');
-require('system/bootstrap.php');
+}
 
-$app = new Bootstrap();
+?>

@@ -54,18 +54,18 @@ class db {
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
             ));
         } catch (Exception $e) {
-             error::apendMsg('Tec-Dynamics');
+
+            error::apendMsg('Tec-Dynamics');
             error::apendMsg('PDO Error');
             throw new exception($e);
         }
-
         try {
-           // $this->orm = new NotORM($this->conn);
-            // $this->orm->debug = true;
+            $this->orm = new NotORM($this->conn);
+            $this->orm->debug = true;
         } catch (Exception $e) {
-           //  error::apendMsg('Tec-Dynamics');
-            // error::apendMsg('ORM Error');
-            //  throw new exception($e);
+            error::apendMsg('Tec-Dynamics');
+            error::apendMsg('ORM Error');
+            throw new exception($e);
         }
     }
 
@@ -140,10 +140,8 @@ class db {
      * this way.
      */
     public function quote($string, $parameter_type = 'PDO::PARAM_STR') {
-        return $this->pdo->quote($string);
+        return $this->pdo->quote($string, $parameter_type = 'PDO::PARAM_STR');
     }
-
-                
 
     /**
      * (PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.1.0)<br/>

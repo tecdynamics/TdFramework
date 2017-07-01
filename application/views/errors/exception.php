@@ -50,8 +50,8 @@
                 <li><b>Trace :</b> <?php echo $d->getTraceAsString(); ?></li>
                 <li><b>Costum Msg :</b> <?php echo $e->getMessage(); ?></li>
                 <?php
-                if (isset(self::$_msg)) {
-                    foreach (@unserialize(self::$_msg) as $x => $msg) {
+                if (isset($_msg)) {
+                    foreach (@unserialize($_msg) as $x => $msg) {
                         echo '<li><b>Extra Info ' . ($x + 1) . ' :</b> ' . $msg . '</li>';
                     }
                 }

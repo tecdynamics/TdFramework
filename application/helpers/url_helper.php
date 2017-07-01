@@ -1,7 +1,6 @@
 <?php
-
 /*
- * Description of Index File 
+ * Description of Helper Url
  * Copyright (c) 2013 - 2014 Tec-Dynamics 
  * 
  * This Framework is free software; you can redistribute it and/or
@@ -19,11 +18,22 @@
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt    LGPL
  * @version    0.1.5, 2014-12-22  
  */
-ini_set('display_errors', 1);
+class Url_helper {
 
-require('application/config/config.php');
-require('system/td.php');
-include(SYSTEM.'error.php');
-require('system/bootstrap.php');
+	function base_url()
+	{
+		global $config;
+		return $config['base_url'];
+	}
+	
+	function segment($seg)
+	{
+		if(!is_int($seg)) return false;
+		
+		$parts = explode('/', $_SERVER['REQUEST_URI']);
+	    return isset($parts[$seg]) ? $parts[$seg] : false;
+	}
+	
+}
 
-$app = new Bootstrap();
+?>
