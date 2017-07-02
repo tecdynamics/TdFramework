@@ -31,7 +31,9 @@
 <div class="container-fluid  text-center " 
      style="border: 1px solid lightblue; padding: 10px; border-radius: 4px; margin: 5px;">
     <h4>LATEST NEWS</h4>
-    <p><span class="label label-default">02/07/2017 Version 1.0.4 add New loader and Storage directory plus security updates.</span></p>    
+    <p><span class="label label-default">02/07/2017 Version 1.0.11 
+            edited the loader and now working with Namespaces</span></p>    
+    <p><span class="label label-default">01/07/2017 Version 1.0.9 add New loader and Storage directory plus security updates.</span></p>    
     <p><span class="label label-default">12/04/2016 Version 1.0.3 add New plugin directory plus security updates.</span></p>    
     <p><span class="label label-default">14/04/2015 Version 1.0.2 add Bootstrap plus security updates.</span></p>    
     <p><span class="label label-default">27/12/2014 Version 1.0.1 add helpers with in main functionality.</span></p>

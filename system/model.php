@@ -1,4 +1,5 @@
 <?php
+namespace system;
 /*
  * Description of Class Model 
  * Copyright (c) 2013 - 2014 Tec-Dynamics 

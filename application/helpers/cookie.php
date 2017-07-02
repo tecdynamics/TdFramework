@@ -1,5 +1,5 @@
 <?php
-
+namespace application\helpers;
 /*
  * Description of Class TdCookie 
  * Copyright (c) 2013 - 2014 Tec-Dynamics 

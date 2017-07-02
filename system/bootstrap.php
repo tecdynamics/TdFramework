@@ -1,5 +1,5 @@
 <?php
-
+namespace system;
 /*
  * Description of Class Bootstrap 
  * Copyright (c) 2013 - 2014 Tec-Dynamics 
@@ -34,7 +34,8 @@ class Bootstrap extends Controller {
         $RequestedFile = $url[0];
         $this->cookies()->init();
         if (empty($url[0])) {
-            $controller = new $config['default_controller'];
+            $c = 'application\controllers\\'.$config['default_controller'];
+            $controller = new $c;
             $controller->{$config['default_action']}();
             return;
         } else {
@@ -42,7 +43,8 @@ class Bootstrap extends Controller {
                 triggerError($url);
                 return;
             } else {
-                $controller = new $RequestedFile;
+                $c = 'application\controllers\\'.$RequestedFile;
+                  $controller = new $c;
                 //==================
                 if (!empty($url[2])) {
                     $controller->{$url[1]}($url[2]);

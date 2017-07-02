@@ -1,4 +1,5 @@
 <?php
+namespace system;
 /*
  * Description of Class Abstract 
  * Copyright (c) 2013 - 2014 Tec-Dynamics 
@@ -18,22 +19,24 @@
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt    LGPL
  * @version    0.1.5, 2014-12-22  
  */
+use application\helpers\Cookie;
+use application\helpers\Crypto;
 
-abstract class apstract {  
+abstract class Apstract {  
     
     function loadModel(){}
     function loadView(){}
     function loadPlugin(){}
     function loadHelper(){}
-    function Engine(){}
+   
     /**
      * Helper Function Cookies
      * Set , Get , Destroy any cookie
      * @return \CookieSet
      */
    final public function cookies() {
-       require(APP_DIR . 'helpers/cookie.php');
-         return new Cookie();
+     //  require(APP_DIR . 'helpers/cookie.php');
+          return new  Cookie();
     }
 
     /**
@@ -42,8 +45,8 @@ abstract class apstract {
      * @return \Crypto
      */
     final public function Crypto() {
-        require(APP_DIR . 'helpers/crypto.php');
-        return new Crypto();
+     //   require(APP_DIR . 'helpers/crypto.php');
+       return new  Crypto();
     }
 
    

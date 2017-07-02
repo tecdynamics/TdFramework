@@ -1,4 +1,5 @@
 <?php
+namespace application\helpers;
 /*
  * Description of Helper Url
  * Copyright (c) 2013 - 2014 Tec-Dynamics 

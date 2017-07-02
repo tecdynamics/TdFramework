@@ -22,8 +22,8 @@
 ini_set('display_errors', 1);
 
 require('application/config/config.php');
-require('system/td.php');
+require(SYSTEM.'td.php');
 include(SYSTEM.'error.php');
-require('system/bootstrap.php');
 
+use system\bootstrap;
 $app = new Bootstrap();

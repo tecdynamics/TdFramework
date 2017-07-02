@@ -1,4 +1,6 @@
 <?php
+namespace application\controllers;
+
 /*
  * Description of Class Home 
  * Copyright (c) 2013 - 2014 Tec-Dynamics 
@@ -19,22 +21,30 @@
  * @version    0.1.5, 2014-12-22  
  */
 
-class Home extends Controller {
-	/**
+use application\test\newclass as newt; 
+
+class Home extends  \system\Controller {
+
+    /**
      * Index Controller
      */
-    function index($id='')
-	{        echo $id;
+    function index($id = '') {
+       
         $template = $this->loadView('index');
         $template->set('pageinfo', '');
         $template->render();
-      }
-    function mike()
-	{        
-        $template = $this->loadView('index.php');
-        $template->set('pageinfo', '');
-        $template->render();
+        
+    }
+
+   
+    function withInstance() {
+        $objs =  \system\engine::getInstance();
+        $template = $objs->loadView('index');  
+        $template->render(); 
+    }
+    
+    function getdb() {
+        new newt;
     }
 
 }
- 

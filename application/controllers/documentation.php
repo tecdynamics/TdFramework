@@ -1,4 +1,5 @@
 <?php
+namespace application\controllers;
 /*
  * Description of Class Home 
  * Copyright (c) 2013 - 2014 Tec-Dynamics 
@@ -19,7 +20,7 @@
  * @version    0.1.5, 2014-12-22  
  */
 
-class Documentation extends Controller {
+class Documentation extends \system\Controller {
 
     function index()
 	{        

@@ -1,7 +1,7 @@
 <?php
-namespace application\helpers;
+ namespace application\models;
 /*
- * Description of Helper Crypto 
+ * Description of Class Example Model 
  * Copyright (c) 2013 - 2014 Tec-Dynamics 
  * 
  * This Framework is free software; you can redistribute it and/or
@@ -18,28 +18,20 @@ namespace application\helpers;
  * @copyright  Copyright (c) 2013 - 2014 Tec-Dynamics L.T.D. (http://www.tec-dynamics.co.uk/webphp)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt    LGPL
  * @version    0.1.5, 2014-12-22  
- */ 
-class Crypto {
-   
-       /**
-        * Encoding any string with mycript and base64
-        * @param $string string
-        * @return Encode string
-        */   
-    
-    public static function crypt($string){ 
-      $crypt=  mcrypt_encrypt(MCRYPT_RIJNDAEL_256, ENCODE_KEY, $string, MCRYPT_MODE_ECB);
-      return base64_encode($crypt);
-            
+ */
+
+class ExampleModel extends \system\Model {
+
+    public function getPdo($id = '') {
+        $this->query('SELECT * FROM application');
+        return $this->GetAll();
     }
-    
-       /**
-        * Decoding any string with mycript and base64
-        * @param $string the Encripted string
-        * @return Decripted string
-        */  
-    public static function decrypt($decript_string){
-    $string=base64_decode($decript_string);
-return mcrypt_decrypt(MCRYPT_RIJNDAEL_256, ENCODE_KEY, $string, MCRYPT_MODE_ECB);  
+
+    public function getOrm($id = '') {
+        $ormData = $this->orm->application[1];
+        return array($ormData["id"], $ormData["author_id"], $ormData["maintainer_id"], $ormData["title"], $ormData["web"], $ormData["slogan"]);
     }
+
 }
+
+?>

@@ -1,5 +1,5 @@
 <?php
-
+namespace system;
 /*
  * Description of Class engine 
  * Copyright (c) 2013 - 2014 Tec-Dynamics 
@@ -19,11 +19,26 @@
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt    LGPL
  * @version    0.1.5, 2014-12-22  
  */
-
+use \application\helpers\tdcashe\tdcashe;
+ 
 class engine {
 
     private $gvars = array();
     private $pvars = array();
+    private static $engeneInst = false;
+
+    public static function getInstance(){
+        $objs = null;
+     if(self::$engeneInst === false){
+       self::$engeneInst = new self;
+     }
+     $objs = &self::$engeneInst;
+     $a = new Controller();
+     $objs = &$a; 
+     return $objs;
+     
+}
+
 
     /**
      * Get passed Variables
@@ -55,7 +70,8 @@ class engine {
      * @return string
      */
     public static function Cashe() {
-        return new tdCashe();
+        
+        return  tdcashe::getCasheObj();
     }
 
     /**
@@ -69,7 +85,7 @@ class engine {
     public static function pagenavigation() {
         // instantiate; set current page; set number of records
         $curentpage = isset($_GET['page']) ? ((int) $_GET['page']) : 1;
-        $pgn = new Pagination();
+        $pgn = new \Pagination();
         $pgn->setCurrent($curentpage);
         // grab rendered/parsed pagination markup
         return $pgn;

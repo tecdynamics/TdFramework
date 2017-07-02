@@ -1,5 +1,7 @@
 <?php
 
+namespace system;
+
 /*
  * Description of Class Controller 
  * Copyright (c) 2013 - 2014 Tec-Dynamics 
@@ -20,11 +22,15 @@
  * @version    0.1.5, 2014-12-22  
  */
 
-class Controller extends apstract {
- 
+use system\View;
+use system\Model;
+use system\engine;
+
+class Controller extends Apstract {
+
     public function __call($func, $agr = '') {
         if (!function_exists($func)) {
-          triggerError($func); 
+            triggerError($func);
             exit;
         }
     }
@@ -35,10 +41,10 @@ class Controller extends apstract {
      * @return \name
      */
     public function loadModel($name) {
-        if ($this->_MODEL == null) {
-            $this->_MODEL = new $name;
+        if ($this->obj->_MODEL == null) {
+            $this->obj->_MODEL = new $name;
         }
-        return $this->_MODEL;
+        return $this->obj->_MODEL;
     }
 
     /**
@@ -47,10 +53,10 @@ class Controller extends apstract {
      * @return \View
      */
     public function loadView($name) {
-        if ($this->_VIEW == null) {
-            $this->_VIEW = new View($name);
+        if ($this->obj->_VIEW == null) {
+            $this->obj->_VIEW = new View($name);
         }
-         return $this->_VIEW;
+        return $this->obj->_VIEW;
     }
 
     /**
@@ -58,7 +64,7 @@ class Controller extends apstract {
      * @param type string Plugin name $name
      */
     public function loadPlugin($name) {
-        require(APP_DIR . 'plugins/' . strtolower($name) . '.php');
+        include_once (APP_DIR . 'plugins/' . strtolower($name) . '.php');
     }
 
     /**
@@ -67,10 +73,10 @@ class Controller extends apstract {
      * @return \name
      */
     public function loadHelper($name) {
-         if ($this->_HELPER == null) {
-        $this->_HELPER = new $name;
-         }
-        return $this->_HELPER;
+        if ($this->obj->_HELPER == null) {
+            $this->obj->_HELPER = new $name;
+        }
+        return $this->obj->_HELPER;
     }
 
     /**
@@ -80,8 +86,8 @@ class Controller extends apstract {
      */
     public function redirect($loc) {
         global $config;
-
         header('Location: ' . $config['base_url'] . $loc);
+        exit;
     }
 
     /**
@@ -89,7 +95,16 @@ class Controller extends apstract {
      * @return \PHPMailer
      */
     public function sendMail() {
-        return new PHPMailer();
+        include_once 'application/helpers/PHPMailer/class.phpmailer.php';
+        return new \PHPMailer();
+    }
+    /**
+     * Pagination Library
+     * @return \Pagination
+     */
+    public function pagination() {
+        include_once 'application/helpers/Pagination/Pagination.php';
+        return new \Pagination();
     }
 
     /**
@@ -97,7 +112,8 @@ class Controller extends apstract {
      * @return \PHPExcel
      */
     public function Excel() {
-        return new PHPExcel();
+        include_once 'application/helpers/phpexcel/PHPExcel.php';
+        return new \PHPExcel();
     }
 
     /**
@@ -109,5 +125,3 @@ class Controller extends apstract {
     }
 
 }
-
-?>

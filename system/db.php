@@ -1,5 +1,5 @@
 <?php
-
+namespace system;
 /*
  * Description of Class config
  * Copyright (c) 2013 - 2014 Tec-Dynamics
@@ -49,9 +49,9 @@ class db {
     public function __construct() {
         global $config;
         try {
-            $this->conn = new PDO($config['db_type'] . ':host=' . $config['db_host'] . ';dbname=' . $config['db_name'] . ';charset=utf8', $config['db_username'], $config['db_password'], array(
-                PDO::ATTR_PERSISTENT => true,
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+            $this->conn = new \PDO($config['db_type'] . ':host=' . $config['db_host'] . ';dbname=' . $config['db_name'] . ';charset=utf8', $config['db_username'], $config['db_password'], array(
+                \PDO::ATTR_PERSISTENT => true,
+                \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION
             ));
         } catch (Exception $e) {
 
@@ -63,8 +63,8 @@ class db {
             $this->orm = new NotORM($this->conn);
             $this->orm->debug = true;
         } catch (Exception $e) {
-            error::apendMsg('Tec-Dynamics');
-            error::apendMsg('ORM Error');
+            apendMsg('Tec-Dynamics');
+            apendMsg('ORM Error');
             throw new exception($e);
         }
     }

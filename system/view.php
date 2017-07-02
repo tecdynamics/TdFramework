@@ -1,5 +1,5 @@
 <?php
-
+namespace system;
 /*
  * Description of Class Views
  * Copyright (c) 2013 - 2014 Tec-Dynamics 
@@ -19,7 +19,7 @@
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt    LGPL
  * @version    0.1.5, 2014-12-22  
  */
-
+use system\engine;
 class View {
 
     private $pageVars = array();
@@ -27,8 +27,10 @@ class View {
     private $css = '';
     private $js = '';
 
-    public function __construct($template = 'errors/error404') {
-       
+    public function __construct($template = 'errors/error404',$vars=array()) {
+       if(!empty($vars)){
+            $this->setarray($vars);
+        }
         $this->template = BASE .  $this->checkTheExtension($template);
     }
 
@@ -81,8 +83,11 @@ class View {
     /**
      * Rendering the template
      */
-    public function render() {
+    public function render($vars=array()) {
         global $config;
+        if(!empty($vars)){
+            $this->setarray($vars);
+        }
         $this->addStyle('helpers/Pagination/css/pagenavi');
         $this->set('pagetitle', $config['pagetitle']);
         extract($this->pageVars);

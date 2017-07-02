@@ -39,7 +39,7 @@
      * Render 404 Page for any regular error
      */
     function error404() { 
-        $template = new View('errors/error404');
+        $template = new \system\View('errors/error404');
         $template->set('css', 'errors/css/error');
         $template->set('pageinfo', 'Error 404');
         $template->render();  

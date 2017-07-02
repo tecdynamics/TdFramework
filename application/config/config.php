@@ -21,7 +21,7 @@
  */
 // Web Site Info
 $config['base_url'] = 'http://localhost/MyFramework/'; // Base URL including trailing slash (e.g. http://localhost/)
-$config['errors'] = true;  // Enable error recording True/False
+$config['errors'] = false;  // Enable error recording True/False
 $config['costum_errors'] = true; // Enable Costum Error recording True/False
 $config['default_controller'] = 'home'; // Default controller to load
 $config['default_action'] = 'index'; // Default controller to load

@@ -1,13 +1,21 @@
 <?php
-
+namespace application\helpers\tdcashe;
 /**
  * Description of tdCashe
  *
  * @author admin
  */
 class tdCashe {
-
-	// Length of time to cache a file (in seconds)
+    private static  $inst =false;
+    
+    public static function getCasheObj(){
+        if(self::$inst===false){
+            self::$inst = new self;
+        }
+        return self::$inst;
+    }
+    
+    // Length of time to cache a file (in seconds)
     public $cache_time = 3600;
 	// Cache file extension
 	public $cache_extension = '.cache';
